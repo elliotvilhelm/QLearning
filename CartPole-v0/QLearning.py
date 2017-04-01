@@ -17,7 +17,7 @@ means that learning can occur quickly.
 """
 MIN_LEARNING_RATE = 0.1
 Q = np.random.rand(162, env.action_space.n)
-
+#Q = np.zeros([162, 2])
 # 162 boxes = 3 * 3 * 6 * 3
 #BIN_NUMBERS = (3, 3, 6, 3)
 def get_Box(observation):
@@ -38,7 +38,7 @@ def get_Box(observation):
         box_number += 6
     if theta < np.radians(-12):
         pass
-    elif theta < np.radians(1.5):
+    elif theta < np.radians(-1.5):
         box_number += 9
     elif theta < np.radians(0):  # golden spot
         box_number += 18
@@ -109,7 +109,7 @@ def q_learn():
                 #print("learning rate: ", learning_rate)
                 #print("explore rate: ", explore_rate)
                 #print("best q: ", q_max)
-                print("total completions: ", total_completions)
+               # print("total completions: ", total_completions)
 
                 if _ > 192:
                     total_completions+=1
@@ -117,10 +117,14 @@ def q_learn():
 
         learning_rate = update_learning_rate(i)
         explore_rate = update_explore_rate(i)
+       # print("explore rate: ", explore_rate)
+       # print("learning rate: ", learning_rate)
 
-    print("total completions: ", total_completions)
-    print("REWARD/TIME: ", total_reward/NUM_EPISODES)
-    print("Final Q values: ", Q)
+        print("total completions: ", total_completions)
+        print("REWARD/TIME: ", total_reward/(i+1))
+        print("Episode: ", i)
+
+    #print("Final Q values: ", Q)
 
 def main():
     q_learn()

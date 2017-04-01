@@ -1,6 +1,6 @@
 import numpy as np
-import gym
 import random
+import gym
 
 
 env = gym.make('CartPole-v0')
@@ -17,7 +17,6 @@ means that learning can occur quickly.
 """
 MIN_LEARNING_RATE = 0.1
 Q = np.random.rand(162, env.action_space.n)
-print(Q)
 
 # 162 boxes = 3 * 3 * 6 * 3
 #BIN_NUMBERS = (3, 3, 6, 3)
@@ -96,7 +95,6 @@ def q_learn():
         for _ in range(250):
             env.render()
             action = update_action(state_0, explore_rate)
-            #action = np.argmax(Q[state_0, :] + np.random.randn(1, env.action_space.n) * (1. / (i + 1)))
             obv, reward, done, info = env.step(action)
 
             state_1 = get_Box(obv)
@@ -121,12 +119,12 @@ def q_learn():
         explore_rate = update_explore_rate(i)
 
     print("total completions: ", total_completions)
-
     print("REWARD/TIME: ", total_reward/NUM_EPISODES)
     print("Final Q values: ", Q)
 
 def main():
     q_learn()
+
 if __name__ == "__main__":
     main()
 

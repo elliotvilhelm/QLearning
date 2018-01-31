@@ -1,6 +1,6 @@
 # Q Learning with OpenAI gym 
 
-https://github.com/ElliotVilhelm/OpenAI
+https://github.com/ElliotVilhelm/
 
 ### OpenAI Gym
 OpenAI is a non-profit AI research company. OpenAI's Python module "gym" provides us with many environments with which we can experiment and solve. 
@@ -65,7 +65,7 @@ print("Observation Space: ", env.observation_space)
 
 # Reinforcement Learning Loop
 
-![title](rlloop2.png)
+![title](images/rlloop2.png)
 
 
 
@@ -84,7 +84,7 @@ The Agent given a state must have a policy to decide on which action to take. Th
 ### The Bellman Equation
 the expected long-term reward for a given action is equal to the immediate reward from the current action combined with the expected reward from the best future action taken at the following state.
 
-![title](qlearn.png)
+![title](images/qlearn.png)
 
 
 

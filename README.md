@@ -134,8 +134,7 @@ Our X will be split into 3 boxes, X' into 3 boxes, θ into 6 boxes, θ' into 3 b
 
 
 
-
-```{.python .input}
+```python
 # Input a cartPole observation state
 # A box number ranging from 0-162
 def get_Box(obv):
@@ -187,7 +186,7 @@ def get_Box(obv):
 ##### Explore Rate
 We will need a few functions to modify the learning rate and the exploration rate. The exploration rate decides wether we make a random move or we choose based off of the Q table. The value will start high and grow smaller over time as our Q table begins to more accurately reflect the action-value.
 
-```{.python .input}
+```python
 # Explore Rate Decay Function, Converges to MIN_EXPLORE_RATE
 def update_explore_rate(episode):
 	return max(MIN_EXPLORE_RATE, min(1, 1.0 - np.log10((episode + 1) / 25)))
@@ -196,7 +195,7 @@ def update_explore_rate(episode):
 ##### Learning Rate
 As we learn the right Q values to solve the environment we want to reduce the rate at which we over write them. 
 
-```{.python .input}
+```python
 # Explore Rate Decay Function, Converges to MIN_LEARNING_RATE
 def update_learning_rate(episode):
 	return max(MIN_LEARNING_RATE, (min(0.5, 1.0 - np.log10((episode + 1) / 50))))
@@ -205,7 +204,7 @@ def update_learning_rate(episode):
 ##### Update Action
 This function will take the state and exploration rate as an input. It will decide with a probability dependent on the exploration rate wether to take a random action or to take the action with the maximum value on the Q table
 
-```{.python .input}
+```python
 def update_action(state, explore_rate):
 	if random.random() < explore_rate:
 		return env.action_space.sample()
@@ -216,7 +215,7 @@ def update_action(state, explore_rate):
 # Q Learn
 We are now ready to define the algorithm
 
-```{.python .input}
+```python
 def q_learn():
 	total_reward = 0
 	total_completions = 0
@@ -251,7 +250,7 @@ def q_learn():
 		#print("Final Q values: ", Q)
 ```
 
-```{.python .input}
+```python
 import numpy as np
 import random
 import gym
@@ -272,6 +271,6 @@ q_learn()
 # note "esc r y"  to clear output
 ```
 
-```{.python .input}
+```python
 print("is my kernel dead")
 ```

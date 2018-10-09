@@ -23,7 +23,7 @@ OpenAI is a non-profit AI research company. OpenAI's Python module "gym" provide
 - The env.step() method takes an action as an input and outputs four variables, observation, reward, done, info.
 - Observation will describe our environment, the reward will represent the reward earned at the time step, done will decribes if the trial is over, meaning we have won or lost, and info will be ntohing in this environment.
 
-```{.python .input}
+```python
 import gym
 env = gym.make('CartPole-v0')
 env.reset()
